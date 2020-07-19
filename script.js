@@ -6,6 +6,7 @@ var questionIndex = 0;
 var secondsLeft = 60;
 var timerStart = false;
 var penalty = 10;
+var ulCreate = document.createElement("ul");
 
 var questions = [
     {
@@ -100,7 +101,6 @@ function scorePage(){
         questionsDiv.appendChild(createP2);
     }
 
- 
     var newLabel = document.createElement("label");
     newLabel.setAttribute("id", "newLabel");
     newLabel.textContent = "Enter your initials: ";
@@ -119,3 +119,32 @@ function scorePage(){
     newSubmit.textContent = "Submit";
     questionsDiv.appendChild(newSubmit);
 }
+    
+    newSubmit.addEventListener("click", function () {
+    var initials = newInput.value;
+
+    if (initials === null) {
+
+        console.log("No value entered!");
+
+    } else {
+        var finalScore = {
+            initials: initials,
+            score: timeRemaining
+        }
+        console.log(finalScore);
+        var allScores = localStorage.getItem("allScores");
+        
+        if (allScores === null) {
+            allScores = [];
+
+        } else {
+            allScores = JSON.parse(allScores);
+        }
+        allScores.push(finalScore);
+        var newScore = JSON.stringify(allScores);
+        localStorage.setItem("allScores", newScore);
+        }
+
+    });
+
