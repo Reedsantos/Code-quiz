@@ -14,9 +14,9 @@ var questions = [
         answer: "a"
     },
     {
-        ask: "LOREM IPSUM",
-        options: ["a", "b", "c", "d"],
-        answer: "a"
+        ask: "test?",
+        options: ["1", "2", "3", "4"],
+        answer: "1"
     },
 ];
 timer.addEventListener("click", function () {
