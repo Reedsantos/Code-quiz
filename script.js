@@ -78,5 +78,44 @@ function compare(event) {
 }
 
 function scorePage(){
+    questionsDiv.innerHTML = "";
+    currentTime.innerHTML = "";
 
+    var createH1 = document.createElement("h1");
+    createH1.setAttribute("id", "createH1");
+    createH1.textContent = "Finished!"
+
+    questionsDiv.appendChild(createH1);
+
+    var createP = document.createElement("p");
+    createP.setAttribute("id", "createP");
+
+    questionsDiv.appendChild(createP);
+
+    if (secondsLeft >= 0) {
+        var timeRemaining = secondsLeft;
+        var createP2 = document.createElement("p");
+        clearInterval(timerStart);
+        createP.textContent = "Your final score is: " + timeRemaining;
+        questionsDiv.appendChild(createP2);
+    }
+
+ 
+    var newLabel = document.createElement("label");
+    newLabel.setAttribute("id", "newLabel");
+    newLabel.textContent = "Enter your initials: ";
+    questionsDiv.appendChild(newLabel);
+
+
+    var newInput = document.createElement("input");
+    newInput.setAttribute("type", "text");
+    newInput.setAttribute("id", "initials");
+    newInput.textContent = "";
+    questionsDiv.appendChild(newInput);
+
+    var newSubmit = document.createElement("button");
+    newSubmit.setAttribute("type", "submit");
+    newSubmit.setAttribute("id", "Submit");
+    newSubmit.textContent = "Submit";
+    questionsDiv.appendChild(newSubmit);
 }
