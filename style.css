@@ -1,0 +1,15 @@
+       #wrapper {
+        width: 600px;
+        height: 500px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 10px 50px 50px 50px;
+        border-radius: 50px;
+        border: 2px solid ;
+        }
+
+
+        button {
+            border-radius: 8px;
+        }
+        
