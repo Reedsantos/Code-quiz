@@ -9,7 +9,7 @@ var penalty = 10;
 
 var questions = [
     {
-        ask: "LOREM IPSUM",
+        ask: "LOREM IPSUM?",
         options: ["a", "b", "c", "d"],
         answer: "a"
     },
@@ -27,6 +27,7 @@ timer.addEventListener("click", function () {
 
             if (secondsLeft <= 0) {
                 clearInterval(timerStart);
+                scorePage();
                 currentTime.textContent = "Out of time!";
             }
         }, 1000);
@@ -48,7 +49,34 @@ function render(questionIndex) {
         listItem.textContent = newItem;
         questionsDiv.appendChild(ulCreate);
         ulCreate.appendChild(listItem);
+        listItem.addEventListener("click", (compare));
     })
 }
+function compare(event) {
+    var element = event.target;
 
- 
+    if (element.matches("li")) {
+
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "createDiv");
+
+        if (element.textContent == questions[questionIndex].answer) {
+            score++;
+        } else {
+            secondsLeft = secondsLeft - penalty;
+        }
+    }
+    questionIndex++;
+
+    if (questionIndex >= questions.length) {
+        scorePage();
+        createDiv.textContent = "You got  " + score + "/" + questions.length + " Right!";
+    } else {
+        render(questionIndex);
+    }
+    questionsDiv.appendChild(createDiv);
+}
+
+function scorePage(){
+
+}
