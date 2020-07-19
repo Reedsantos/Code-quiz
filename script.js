@@ -7,7 +7,6 @@ var secondsLeft = 60;
 var timerStart = false;
 var penalty = 10;
 
-
 var questions = [
     {
         ask: "LOREM IPSUM",
@@ -19,5 +18,37 @@ var questions = [
         options: ["a", "b", "c", "d"],
         answer: "a"
     },
-   
-    timer.addEventListener("click", function () {
+];
+timer.addEventListener("click", function () {
+    if (timerStart === false) {
+        timerStart = setInterval(function () {
+            secondsLeft--;
+            currentTime.textContent = "Time: " + secondsLeft;
+
+            if (secondsLeft <= 0) {
+                clearInterval(timerStart);
+                currentTime.textContent = "Out of time!";
+            }
+        }, 1000);
+    }
+    render(questionIndex);
+});
+function render(questionIndex) {
+
+    questionsDiv.innerHTML = "";
+    ulCreate.innerHTML = "";
+
+    for (var i = 0; i < questions.length; i++) {
+        var userQuestion = questions[questionIndex].ask;
+        var userOptions = questions[questionIndex].options;
+        questionsDiv.textContent = userQuestion;
+    }
+    userOptions.forEach(function (newItem) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newItem;
+        questionsDiv.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+    })
+}
+
+ 
