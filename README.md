@@ -1,5 +1,7 @@
 # Code-quiz Homework 4
-Third homework assignment for UNH programming bootcamp. Here is the psudo code we recieved as guidelines. I was able to incorporate all mechanics except "Then I can save my initials and score". I was able to suscessfully save initials and scores to local storage but did not include a leaderboard. I also included some screenshots in the assets folder.
+Third homework assignment for UNH programming bootcamp. Here is the psudo code we recieved as guidelines. I was able to incorporate all mechanics except "Then I can save my initials and score". I was able to suscessfully save initials and scores to local storage but did not include a leaderboard.The link to my github page is below and I also included some screenshots in the assets folder.
+
+https://reedsantos.github.io/Geo-quiz/
 
 GIVEN I am taking a code quiz
 WHEN I click the start button
